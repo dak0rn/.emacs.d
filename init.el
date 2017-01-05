@@ -170,3 +170,17 @@
 
 ;; We do not want to be annoyed
 (setq ring-bell-function 'ignore)
+
+;; Highlight long lines
+(defface hi-nasty '((t :foreground "#00bb00")) "Warning face")
+(defface hi-console '((t :foreground "#ff6600")) "Face for console.log/...")
+(defface hi-todo '((t :background "#bb0000" :foreground "#ffffff")) "TODO face")
+
+(defun highlight-stuff ()
+  (highlight-lines-matching-regexp ".\\{120\\}" 'hi-nasty)
+  (highlight-regexp "\\<\\(FIXME\\|TODO\\)" 'hi-todo))
+
+(add-hook 'find-file-hook 'highlight-stuff)
+(add-hook 'rjsx-mode-hook
+          (lambda ()
+            (highlight-regexp "console\\.\\(warn\\|log\\|error\\|table\\|dir\\)" 'hi-console)))
