@@ -1,14 +1,17 @@
 ;;; emacs configuration file
 
 ;; Setting the search path for binaries
-(setq exec-path
-      (append exec-path
-              '("/usr/local/bin"
+(defvar paths '("/usr/local/bin"
                 "/usr/bin"
                 "/bin"
                 "/usr/sbin"
                 "/sbin"
-                "/Applications/Postgres.app/Contents/Versions/latest/bin")))
+                "/Applications/Postgres.app/Contents/Versions/latest/bin"))
+(setq exec-path (append exec-path paths))
+(setenv "PATH"
+        (concat (getenv "PATH")
+                ":"
+                (mapconcat 'identity paths ":")))
 
 ;; Package Management
 (package-initialize)
