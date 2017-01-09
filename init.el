@@ -93,9 +93,6 @@
 ;; 120 character width
 (setq-default fill-column 120)
 
-;; git-gutter+
-(global-git-gutter+-mode)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -106,7 +103,7 @@
     ("63dd8ce36f352b92dbf4f80e912ac68216c1d7cf6ae98195e287fd7c7f7cb189" "23ccf46b0d05ae80ee0661b91a083427a6c61e7a260227d37e36833d862ccffc" default)))
  '(package-selected-packages
    (quote
-    (company org-present rjsx-mode emmet-mode nyan-mode plsql json-mode clojure-mode paredit rainbow-delimiters projectile tao-theme org neotree magit disable-mouse))))
+    (git-timemachine company org-present rjsx-mode emmet-mode nyan-mode plsql json-mode clojure-mode paredit rainbow-delimiters projectile tao-theme org neotree magit disable-mouse))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
