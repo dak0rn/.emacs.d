@@ -2,6 +2,7 @@
 
 ;; Setting the search path for binaries
 (defvar paths '("/usr/local/bin"
+                "/Library/TeX/texbin"
                 "/usr/bin"
                 "/bin"
                 "/usr/sbin"
@@ -100,10 +101,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("63dd8ce36f352b92dbf4f80e912ac68216c1d7cf6ae98195e287fd7c7f7cb189" "23ccf46b0d05ae80ee0661b91a083427a6c61e7a260227d37e36833d862ccffc" default)))
+    ("43c1a8090ed19ab3c0b1490ce412f78f157d69a29828aa977dae941b994b4147" "fbfe57e4331e1c9f1eb850a902960ae07b9d1eb74e36d07f30cd88f1215f1f3b" "63dd8ce36f352b92dbf4f80e912ac68216c1d7cf6ae98195e287fd7c7f7cb189" "23ccf46b0d05ae80ee0661b91a083427a6c61e7a260227d37e36833d862ccffc" default)))
  '(package-selected-packages
    (quote
-    (git-timemachine company org-present rjsx-mode emmet-mode nyan-mode plsql json-mode clojure-mode paredit rainbow-delimiters projectile tao-theme org neotree magit disable-mouse))))
+    (js2-highlight-vars kanban leuven-theme git-timemachine company org-present rjsx-mode emmet-mode nyan-mode plsql json-mode clojure-mode paredit rainbow-delimiters projectile tao-theme org neotree magit disable-mouse))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -112,7 +113,7 @@
  )
 
 ;; A nice theme
-(load-theme 'tao-yin)
+(load-theme 'leuven)
 
 ;; Projectile mode
 (projectile-global-mode)
@@ -183,4 +184,9 @@
 (add-hook 'find-file-hook 'highlight-stuff)
 (add-hook 'rjsx-mode-hook
           (lambda ()
-            (highlight-regexp "console\\.\\(warn\\|log\\|error\\|table\\|dir\\)" 'hi-console)))
+            (highlight-regexp "console\\.\\(warn\\|log\\|error\\|table\\|dir\\)" 'hi-console)
+            (js2-highlight-vars-mode)))
+
+(define-key global-map (kbd "C-c a") 'org-agenda)
+(setq org-log-done t)
+(put 'scroll-left 'disabled nil)
