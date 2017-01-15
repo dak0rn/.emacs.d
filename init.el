@@ -190,3 +190,7 @@
 (define-key global-map (kbd "C-c a") 'org-agenda)
 (setq org-log-done t)
 (put 'scroll-left 'disabled nil)
+
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
