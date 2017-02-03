@@ -104,7 +104,7 @@
     ("43c1a8090ed19ab3c0b1490ce412f78f157d69a29828aa977dae941b994b4147" "fbfe57e4331e1c9f1eb850a902960ae07b9d1eb74e36d07f30cd88f1215f1f3b" "63dd8ce36f352b92dbf4f80e912ac68216c1d7cf6ae98195e287fd7c7f7cb189" "23ccf46b0d05ae80ee0661b91a083427a6c61e7a260227d37e36833d862ccffc" default)))
  '(package-selected-packages
    (quote
-    (js2-highlight-vars kanban leuven-theme git-timemachine company org-present rjsx-mode emmet-mode nyan-mode plsql json-mode clojure-mode paredit rainbow-delimiters projectile tao-theme org neotree magit disable-mouse))))
+    (js2-mode yasnippet kanban leuven-theme git-timemachine company org-present rjsx-mode emmet-mode nyan-mode plsql json-mode clojure-mode paredit rainbow-delimiters projectile tao-theme org neotree magit disable-mouse))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -125,9 +125,10 @@
 (set-face-attribute 'default t :font "Hasklig-11")
 
 ;; Good javascript
-;;(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
-(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
+;;(add-hook 'js2-jsx-mode-hook 'rjsx-mode)
+;;(add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
 
 ;; Emmet
 ;;(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . emmet-mode))
@@ -185,7 +186,7 @@
 (add-hook 'rjsx-mode-hook
           (lambda ()
             (highlight-regexp "console\\.\\(warn\\|log\\|error\\|table\\|dir\\)" 'hi-console)
-            (js2-highlight-vars-mode)))
+            ))
 
 (define-key global-map (kbd "C-c a") 'org-agenda)
 (setq org-log-done t)
@@ -194,3 +195,12 @@
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
 (ido-mode 1)
+
+;; find file at point (ffap)
+(setq ffap-require-prefix t)
+(ffap-bindings)
+
+(require 'yasnippet)
+(yas-global-mode 1)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
