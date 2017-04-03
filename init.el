@@ -104,7 +104,7 @@
     ("43c1a8090ed19ab3c0b1490ce412f78f157d69a29828aa977dae941b994b4147" "fbfe57e4331e1c9f1eb850a902960ae07b9d1eb74e36d07f30cd88f1215f1f3b" "63dd8ce36f352b92dbf4f80e912ac68216c1d7cf6ae98195e287fd7c7f7cb189" "23ccf46b0d05ae80ee0661b91a083427a6c61e7a260227d37e36833d862ccffc" default)))
  '(package-selected-packages
    (quote
-    (js2-mode yasnippet kanban leuven-theme git-timemachine company org-present rjsx-mode emmet-mode nyan-mode plsql json-mode clojure-mode paredit rainbow-delimiters projectile tao-theme org neotree magit disable-mouse))))
+    (restclient material-theme yaml-mode docker js2-mode yasnippet kanban leuven-theme git-timemachine company org-present rjsx-mode emmet-mode nyan-mode plsql json-mode clojure-mode paredit rainbow-delimiters projectile tao-theme org neotree magit disable-mouse))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -113,7 +113,7 @@
  )
 
 ;; A nice theme
-(load-theme 'leuven)
+(load-theme 'material t)
 
 ;; Projectile mode
 (projectile-global-mode)
@@ -204,3 +204,5 @@
 (yas-global-mode 1)
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+(rassq-delete-all 'change-log-mode auto-mode-alist)
